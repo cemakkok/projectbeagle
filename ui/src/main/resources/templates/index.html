@@ -1,0 +1,84 @@
+<html ng-app="fruitManagerApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>AngularJS fruit Manager</title>
+<link href='./css/style.css' rel="stylesheet" type="text/css" />
+<link href='./css/css/font-awesome.css' rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<script data-require="angular.js@*" data-semver="1.3.0-beta.14" src="http://code.angularjs.org/1.3.0-beta.14/angular.js"></script>
+  <script data-require="angular-animate@*" data-semver="1.3.0-beta.14" src="http://code.angularjs.org/1.3.0-beta.14/angular-animate.js"></script>
+<script type="text/javascript" src="./js/app.js"></script>
+</head>
+<body>
+
+<div ng-controller="fruitManagerController">
+<h2 class="page-title">Fruit Manager </h2>
+	<div id="fruit-panel" class="fadein fadeout showpanel panel"  ng-show="toggle">	
+		<div class="panel-heading">
+			<i class="panel-title-icon fa fa-fruits"></i>
+			<span class="panel-title">Recent fruits</span>
+			<div class="panel-heading-controls">
+				<button ng-click="toggle = !toggle" class="btn-panel">Add New fruit</button>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div class="fruit" ng-repeat="fruit in fruits">
+				<div>{{fruit.fruitName}} - {{fruit.fruitDescription}}</div>
+				<!-- <span ng-if="fruit.fruitPriority=='HIGH'" class="priority priority-red">
+					{{fruit.fruitPriority}}
+				</span>
+				<span ng-if="fruit.fruitPriority=='MEDIUM'" class="priority priority-yellow">
+					{{fruit.fruitPriority}}
+				</span>
+				<span ng-if="fruit.fruitPriority=='LOW'" class="priority priority-green">
+					{{fruit.fruitPriority}}
+				</span> -->
+				<!-- <div class="action-checkbox">
+                    <input id="{{fruit._links.self.href}}" type="checkbox" value="{{fruit._links.self.href}}" ng-checked="selection.indexOf(fruit._links.self.href) > -1" ng-click="toggleSelection(fruit._links.self.href)" />
+                    <label for="{{fruit._links.self.href}}" ></label>
+                </div> -->
+				<!-- <div ng-if="fruit.fruitStatus=='COMPLETED'">
+					<a href="#" class="checkedClass">
+						{{fruit.fruitName}}
+					<span class="action-status">{{fruit.fruitStatus}}</span>
+					</a>
+				</div>
+				<div ng-if="fruit.fruitStatus=='ACTIVE'">				
+					<a href="#" class="uncheckedClass">
+						{{fruit.fruitName}}
+						<span class="action-status">{{fruit.fruitStatus}}</span>
+					</a>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<div id="add-fruit-panel" class="fadein fadeout addpanel panel" ng-hide="toggle">
+		<div class="panel-heading">
+			<i class="panel-title-icon fa fa-plus"></i>
+			<span class="panel-title">Add Fruit</span>
+			<div class="panel-heading-controls">
+				<button ng-click="toggle = !toggle" class="btn-panel">Show All Fruits</button>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div class="fruit" >
+				<table class="add-fruit">
+					<tr>
+						<td>Fruit Name:</td>
+						<td><input type="text" ng-model="fruitName"/></td>
+					</tr>
+					<tr>
+						<td>Fruit Description:</td>
+						<td><input type="text" ng-model="fruitDescription"/></td>
+					</tr>
+					
+					<tr>
+						<td><br/><button ng-click="addfruit()" class="btn-panel-big">Add New Fruit</button></td>
+					</tr>
+				</table>								
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

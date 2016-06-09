@@ -1,0 +1,12 @@
+debug:
+security:
+  user:
+    password: none
+zuul:
+  routes:
+    fruits:
+      path: /fruits/**
+      url: http://localhost:9000/fruits
+logging:
+  level:
+    org.springframework.security: DEBUG
